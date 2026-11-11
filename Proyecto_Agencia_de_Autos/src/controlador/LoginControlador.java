@@ -4,7 +4,7 @@
  */
 package controlador;
 
-import dao.UsuarioDAO;
+import DAO.UsuarioDAO;
 import java.sql.SQLException;
 import modelo.Usuario;
 import util.Sesion;
