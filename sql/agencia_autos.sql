@@ -1,8 +1,3 @@
--- =====================================================================
---  Agencia de Automóviles (Mantenimiento) - Script de base de datos
---  Motor: MariaDB (se ejecuta completo desde HeidiSQL: pestaña Consulta, F9)
--- =====================================================================
-
 CREATE DATABASE IF NOT EXISTS agencia_autos
   CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE agencia_autos;
@@ -13,10 +8,6 @@ DROP TABLE IF EXISTS servicio_refacciones, refacciones, servicios, vehiculos,
                      propietarios, anios, modelos, marcas, usuarios;
 SET FOREIGN_KEY_CHECKS = 1;
 
--- ---------------------------------------------------------------------
--- USUARIOS: administradores que entran al sistema (login)
--- La contraseña NUNCA se guarda en texto plano, solo su hash SHA-256.
--- ---------------------------------------------------------------------
 CREATE TABLE usuarios (
   id            INT AUTO_INCREMENT PRIMARY KEY,
   usuario       VARCHAR(50)  NOT NULL UNIQUE,
@@ -24,10 +15,6 @@ CREATE TABLE usuarios (
   nombre        VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- CATÁLOGOS: marcas, modelos y años (los pide el requisito 8)
--- Un modelo pertenece a UNA marca (relación 1 a muchos).
--- ---------------------------------------------------------------------
 CREATE TABLE marcas (
   id     INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(60) NOT NULL UNIQUE
@@ -46,11 +33,6 @@ CREATE TABLE anios (
   anio INT NOT NULL UNIQUE
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- PROPIETARIOS y VEHÍCULOS
--- Un propietario puede tener varios vehículos (1 a muchos).
--- Un vehículo es de un modelo y de un año (catálogos).
--- ---------------------------------------------------------------------
 CREATE TABLE propietarios (
   id       INT AUTO_INCREMENT PRIMARY KEY,
   nombre   VARCHAR(100) NOT NULL,
@@ -69,13 +51,6 @@ CREATE TABLE vehiculos (
   FOREIGN KEY (anio_id)        REFERENCES anios(id)
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- SERVICIOS: el corazón del sistema (preventivo o correctivo)
---  * folio           : identificador visible para el cliente (ej. SRV-0001)
---  * usuario_id      : qué administrador lo registró
---  * persona_entrega : quién llevó el vehículo a la agencia (requisito 11)
---  * proximo_servicio: cuándo le toca el siguiente (requisito 9)
--- ---------------------------------------------------------------------
 CREATE TABLE servicios (
   id               INT AUTO_INCREMENT PRIMARY KEY,
   folio            VARCHAR(20) NOT NULL UNIQUE,
@@ -91,11 +66,6 @@ CREATE TABLE servicios (
   FOREIGN KEY (usuario_id)  REFERENCES usuarios(id)
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- REFACCIONES y tabla intermedia (relación MUCHOS A MUCHOS)
--- Un servicio usa varias refacciones y una refacción aparece en varios
--- servicios. Por eso se necesita servicio_refacciones en medio.
--- ---------------------------------------------------------------------
 CREATE TABLE refacciones (
   id     INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL UNIQUE,
@@ -111,11 +81,7 @@ CREATE TABLE servicio_refacciones (
   FOREIGN KEY (refaccion_id) REFERENCES refacciones(id)
 ) ENGINE=InnoDB;
 
--- =====================================================================
---  DATOS INICIALES (para poder probar desde el primer día)
--- =====================================================================
-
--- Administrador de prueba -> usuario: admin | contraseña: admin123
+-- Administrador de prueba  usuario: admin | contraseña: admin123
 INSERT INTO usuarios (usuario, password_hash, nombre)
 VALUES ('admin', SHA2('admin123', 256), 'Administrador');
 
@@ -145,3 +111,4 @@ INSERT INTO refacciones (nombre, precio) VALUES
   ('Balatas delanteras', 650.00),
   ('Bujías (juego)', 480.00),
   ('Batería', 1900.00);
+
