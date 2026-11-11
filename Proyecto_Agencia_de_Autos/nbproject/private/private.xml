@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/app/Main.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/controlador/LoginControlador.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Vehiculo.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Marca.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Anio.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/ServicioRefaccion.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Usuario.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Servicio.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Refaccion.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Propietario.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/util/Sesion.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/util/Seguridad.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/util/ConexionDB.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/modelo/Modelo.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/vista/LoginVista.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/DAO/CrudDAO.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/DAO/MarcaDAO.java</file>
+            <file>file:/C:/Users/IP146/OneDrive/Documentos/NetBeansProjects/Proyecto_Agencia_de_Autos/src/app/PruebaConexion.java</file>
+        </group>
+    </open-files>
+</project-private>
