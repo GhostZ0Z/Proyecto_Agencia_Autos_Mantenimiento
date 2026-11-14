@@ -250,36 +250,4 @@ public class ServicioDAO implements CrudDAO<Servicio> {
         }
         return lista;
     }
-
-    /**
-     * Devuelve un arreglo int[3] con la cantidad de servicios en:
-     * [0] = En espera, [1] = En proceso, [2] = Finalizado.
-     * Si fechaDia es vacío o null, cuenta el total de los registros; si no, filtra por fecha_ingreso.
-     */
-    public int[] contarPorEstatus(String fechaDia) throws SQLException {
-        int[] conteos = new int[]{0, 0, 0};
-        boolean filtrarDia = (fechaDia != null && !fechaDia.trim().isEmpty());
-        String sql = "SELECT estatus, COUNT(*) AS total FROM servicios "
-                + (filtrarDia ? "WHERE fecha_ingreso = ? " : "")
-                + "GROUP BY estatus";
-        try (PreparedStatement ps = con().prepareStatement(sql)) {
-            if (filtrarDia) {
-                ps.setDate(1, java.sql.Date.valueOf(fechaDia.trim()));
-            }
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    String est = rs.getString("estatus");
-                    int total = rs.getInt("total");
-                    if ("En espera".equalsIgnoreCase(est)) {
-                        conteos[0] = total;
-                    } else if ("En proceso".equalsIgnoreCase(est)) {
-                        conteos[1] = total;
-                    } else if ("Finalizado".equalsIgnoreCase(est)) {
-                        conteos[2] = total;
-                    }
-                }
-            }
-        }
-        return conteos;
-    }
 }
